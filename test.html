@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Framework Test</title>
+     <meta charset="utf-8">
+     <!-- FRAMEWORKS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.5.1/ember.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+     <!-- TESTS -->
+     <script src="./tests/main.js"></script>
+     <script src="./tests/angular.js"></script>
+     <script src="./tests/ember.js"></script>
+     <script src="./tests/extjs.js"></script>
+     <script src="./tests/raw.js"></script>
+     <script src="./tests/react.js"></script>
+     <!-- BOOTSTRAP -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+     <div class="text-center">
+          <h1>Javascript Framework Speed Test</h1>
+     </div>
+     <div class="container">
+          <!-- CONTROLS -->
+          <div class="row">
+               <div class="form-group col-md-8 col-md-offset-2">
+                    <div class="col-md-3">
+                         <div class="input-group">
+                              <input id="times" class="form-control" placeholder="amount" type="number">
+                              <span class="input-group-addon">X</span>
+                         </div>
+                    </div>
+                    <div class="col-md-3">
+                         <div class="input-group">
+                              <input class="form-control" value="Optimize?" type="text" disabled>
+                              <span class="input-group-addon">     
+                                   <input type="checkbox" id="optimize">     
+                              </span>
+                         </div>
+                    </div>
+                    <div class="col-md-3">
+                         <input class="btn btn-default" type="button" onclick="run();" value="Run Tests">
+                    </div>
+                    <div class="col-md-3">
+                         <input class="btn btn-default" type="button" onclick="run();" value="Run Tests">
+                    </div>
+               </div>
+          </div>
+          <!-- RESULTS TABLE-->
+
+          <div class="row">
+               <table class="table table-condensed table-bordered table-hover" id="results">
+                    <thead>
+                         <th>Optimized<br></th>
+                         <th>Times<br></th>
+                         <th>Angular<br></th>
+                         <th>Ember</th>
+                         <th>React</th>
+                         <th>Raw</th>
+                         <th>ExtJS</th>
+                    </thead>
+               </table>
+          </div>
+
+     </div>
+     <!-- MOUNTING POINTS FOR FRAMEWORKS-->
+     <div>
+          <!-- Angular -->
+          <div id="angular" ng-app>
+               <span ng-controller="Ctrl" id="angList">
+                    <span ng-repeat="item in data track by $index">{{item}}</span>
+               </span>
+          </div>
+
+
+          <!-- Ember -->
+          <div id="emapp"></div>
+          <script type="text/x-handlebars">
+               <span>
+                    {{#each EMapp.data}}
+                    <span>{{this}}</span>
+                    {{/each}}
+               </span>
+          </script>
+
+
+          <!-- React -->
+          <div id="react">
+               <span id="reactMountNode"></span>
+          </div>
+
+          <!-- Raww -->
+          <div id="raw">
+               <span id="rawplace"></span>
+          </div>
+
+          <!-- ExtJS -->
+          <div id="ExtJSDiv">
+               <span id="ExtJSSpan"></span>
+          </div>
+     </div>
+</body>
+</html>
